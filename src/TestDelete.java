@@ -29,6 +29,7 @@ public class TestDelete {
 		tester.add("Hey what is up", "0777777777", "0766666666");
 		int IDs = tester.returnServer().getID();
 		assertEquals("if message not fetched and ID is correct return ID", IDs, tester.delete(IDs));
+		
 	}
 	
 }

@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Random;
 
 
@@ -42,9 +41,7 @@ public class Server implements WhatsUpGU {
 			
 			return -1;
 		}
-		
-		
-		
+				
 		
 		if(IsNotEmpty(message))
 		{
@@ -76,11 +73,7 @@ public class Server implements WhatsUpGU {
 		{
 			return -1;
 		}
-		
-		
-	
 }
-
 	/*
 	 * this function checks if the ID received from the user is equal to the Message ID and if it is fetched
 	 * if the conditions are true, then the function removes the message from the server ArrayList and 
@@ -94,7 +87,7 @@ public class Server implements WhatsUpGU {
 				System.out.println(ID);
 				
 				server.remove(server.get(i));
-			//	IDS.remove(ID);
+				IDS.remove(ID);
 				return ID;
 			} 
 		}
@@ -114,7 +107,7 @@ public class Server implements WhatsUpGU {
 	public String fetch(String receiver) {
 		
 		String message = "";
-		int count = 0;
+	//	int count = 0;
 		
 		for(int i=0; i<server.size(); i++) {
 			if (server.get(i).getReceiver().equals(receiver) && server.get(i).isFetched() == false) {
@@ -123,36 +116,44 @@ public class Server implements WhatsUpGU {
 					+ "Sender: "+server.get(i).getSender();
 	System.out.println(message);
 				server.get(i).setFetched();
-				count++;
+			//	count++;
+				return message;
 			}
 		}
-		if(count!= 0) {
+		
+		return "Message doesn't exist";
+	/*	if(count!= 0) {
 			return message;
 		}
 		else{
 			return "Message doesn't exist";
-		}
+		}	*/
 	}
 	
 	public int fetch_complete(String receiver) {
 		
-		int count = 0;
+	//	int count = 0;
 		
 		for(int i=0; i<server.size(); i++){
 			if (server.get(i).getReceiver().equals(receiver) && server.get(i).isFetched() == true){
 				server.remove(i);
-				count++;
+		//		count++;
+				IDS.remove(server.get(i).getID());
+				return 1;
 			}
 		}
 		
-		if(count!=0) {
+		return -1;
+	/*	if(count!=0) {
 			return 1;
 		}
 		else {
 			return -1;
-		}
+		} */
 	}
 		
+	
+	//	Checks if message is empty
 		
 	public boolean IsNotEmpty (String message) {
 			
@@ -164,15 +165,7 @@ public class Server implements WhatsUpGU {
 			}
 		}
 		
-	public String CheckValidNumber (String number) {
-			try{
-				for (int i = 0;i < number.length(); i++){
-					    Integer.parseInt(Character.toString(number.charAt(i)));
-					}
-				} catch(InputMismatchException e){	
-			}
-			return number;
-		}
+	//	Checks if value is an integer
 		
 	public static boolean isInteger(String s) {
 		    try { 
