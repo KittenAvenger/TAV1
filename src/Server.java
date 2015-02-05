@@ -22,7 +22,7 @@ public class Server implements WhatsUpGU {
 	}
 	
 	/* 	This function checks if the sender has a 10 digit phone number and 
-	*	if the number is an integer. If everything alright, then checks if the message is empty
+	*	if the number is an integer. If everything is alright, then it checks if the message is empty
 	*	when the message is not empty it generates an ID and adds a new Message to the 
 	*	server ArrayList
 	*	The method returns an ID
