@@ -15,6 +15,7 @@ public class Server implements WhatsUpGU {
 		this.text=text;
 	}
 	
+	// Test this fucking piece of shit I am going to murder the cunt who made egit
 	public Message returnServer (){
 		
 		return text;
