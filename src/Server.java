@@ -107,49 +107,46 @@ public class Server implements WhatsUpGU {
 	public String fetch(String receiver) {
 		
 		String message = "";
-	//	int count = 0;
+		int count = 0;
 		
 		for(int i=0; i<server.size(); i++) {
 			if (server.get(i).getReceiver().equals(receiver) && server.get(i).isFetched() == false) {
 				message = message + "\nMessage id: " + server.get(i).getID() + "\nMessage: '"+
 					server.get(i).getMessage()+"'\n"
 					+ "Sender: "+server.get(i).getSender();
-	System.out.println(message);
+	//System.out.println(message);
 				server.get(i).setFetched();
-			//	count++;
-				return message;
+				count++;
 			}
 		}
 		
-		return "Message doesn't exist";
-	/*	if(count!= 0) {
+		if(count!= 0) {
 			return message;
 		}
 		else{
 			return "Message doesn't exist";
-		}	*/
+		}	
 	}
 	
 	public int fetch_complete(String receiver) {
 		
-	//	int count = 0;
+		int count = 0;
 		
 		for(int i=0; i<server.size(); i++){
 			if (server.get(i).getReceiver().equals(receiver) && server.get(i).isFetched() == true){
 				server.remove(i);
-		//		count++;
-				IDS.remove(server.get(i).getID());
-				return 1;
+				count++;
+				//server.remove(i);
+				IDS.remove(i);
 			}
 		}
 		
-		return -1;
-	/*	if(count!=0) {
+		if(count!=0) {
 			return 1;
 		}
 		else {
 			return -1;
-		} */
+		} 
 	}
 		
 	
