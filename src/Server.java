@@ -126,6 +126,7 @@ public class Server implements WhatsUpGU {
 		}
 		
 		if(count!= 0) {
+			fetch_complete(receiver);
 			return message;
 		}
 		else{
@@ -141,7 +142,6 @@ public class Server implements WhatsUpGU {
 			if (server.get(i).getReceiver().equals(receiver) && server.get(i).isFetched() == true){
 				server.remove(i);
 				count++;
-				//server.remove(i);
 				IDS.remove(i);
 			}
 		}
