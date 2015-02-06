@@ -8,7 +8,15 @@ public class TestReplace {
 	Server tester = new Server();
 	
 	@Test
-	public void NotExistingID() {
+	public void NotExistingID(){	// one add method used
+		tester.add("sdfsfdfds", "0763431334", "0763469234");
+		assertEquals("non existing id should return -1", -1, tester.replace(6523223, "howdy"));
+	}
+	
+	@Test
+	public void NotExistingID2(){	//two add methods used
+		tester.add("sdfsfdfds", "0763434234", "0763464234");
+		tester.add("sdfsfdfds", "0763434234", "0763464274");
 		assertEquals("non existing id should return -1", -1, tester.replace(6523223, "howdy"));
 	}
 	
