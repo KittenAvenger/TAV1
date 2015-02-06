@@ -87,7 +87,7 @@ public class Server implements WhatsUpGU {
 				System.out.println(ID);
 				
 				server.remove(server.get(i));
-				IDS.remove(ID);
+				IDS.remove(i);
 				return ID;
 			} 
 		}
