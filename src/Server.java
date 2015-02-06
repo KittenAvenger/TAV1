@@ -4,14 +4,13 @@ import java.util.Random;
 
 public class Server implements WhatsUpGU {
 	
-	Message text;
+	Message text = new Message ();
 	static ArrayList <Message> server = new ArrayList<Message>();
 	static ArrayList <Integer> IDS = new ArrayList<Integer>();
 	
 	public Server (){
 		
-		Message text = null;
-		this.text=text;
+		
 	}
 	
 	

@@ -4,6 +4,10 @@ public class Message {
 	String message, receiver, sender;
 	int ID;
 	boolean fetched;
+	
+	public Message(){
+		
+	}
 
 	public Message (String sender, String message, int ID, String receiver, boolean fetched) {
 		
