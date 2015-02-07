@@ -12,7 +12,7 @@ public class TestFetchComplete {
 	// Sender Id matches and message is not fetched
 	public void SenderIdMatch1(){
 		tester.add("Message1", "0761111234", "0769990000");
-		assertEquals(1, tester.fetch_complete("0769990000"));
+		assertEquals(-1, tester.fetch_complete("0769990000"));
 	}
 	
 	@Test

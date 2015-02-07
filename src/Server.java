@@ -91,9 +91,11 @@ public class Server implements WhatsUpGU {
 			} 
 		}
 		return -1;
+		
 	}
 
 	public int replace(int ID, String message) {
+	if(IsNotEmpty(message)){
 		for(int i = 0; i < server.size(); i++) {
 			if(server.get(i).getID() == ID && server.get(i).isFetched() != true) {
 				server.get(i).setMessage(message);
@@ -101,6 +103,10 @@ public class Server implements WhatsUpGU {
 			}
 		}
 		return -1;
+	}
+	else{
+		return -1;
+	}
 	}
 
 	public String fetch(String receiver) {
@@ -120,6 +126,7 @@ public class Server implements WhatsUpGU {
 		}
 		
 		if(count!= 0) {
+			fetch_complete(receiver);
 			return message;
 		}
 		else{
@@ -135,7 +142,6 @@ public class Server implements WhatsUpGU {
 			if (server.get(i).getReceiver().equals(receiver) && server.get(i).isFetched() == true){
 				server.remove(i);
 				count++;
-				//server.remove(i);
 				IDS.remove(i);
 			}
 		}

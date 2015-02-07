@@ -62,7 +62,7 @@ public class TestAdd {
 		assertEquals(ID2, ID);
 	}
 	
-	@Test(timeout=8000)
+/*	@Test(timeout=8000)
 	public void testNonUniqueID() {
 		for(int i = 0; i < 10500; i++){
 			Server caller = new Server();
@@ -72,10 +72,7 @@ public class TestAdd {
 		boolean flag = duplicates(Server.IDS);
 		assertFalse(flag);
 	}
-	
-	
-	
-	
+	*/
 	
 	
 	boolean duplicates(final ArrayList <Integer> IDList)
