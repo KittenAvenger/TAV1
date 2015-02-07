@@ -13,7 +13,7 @@ public class Server implements WhatsUpGU {
 		
 	}
 	
-	
+	// test
 	public Message returnServer (){
 		
 		return text;
