@@ -14,12 +14,6 @@ public class TestReplace {
 	}
 	
 	
-	@Test
-	public void NotExistingID2(){	//two add methods used
-		tester.add("sdfsfdfds", "0763434234", "0763464234");
-		tester.add("sdfsfdfds", "0763434234", "0763464274");
-		assertEquals("non existing id should return -1", -1, tester.replace(6523223, "howdy"));
-	}
 	
 	@Test
 	public void cantReplaceFetched(){
@@ -39,5 +33,6 @@ public class TestReplace {
 		int ID = tester.add("whats up", "0763654561", "0776782163");
 		assertEquals("Should return the message ID", ID, tester.replace(ID, "changed message"));
 	}
+	
 
 }
