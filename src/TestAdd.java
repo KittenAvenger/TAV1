@@ -9,9 +9,11 @@ import org.junit.Test;
 
 
 
+
 public class TestAdd {
 	
 	Server tester = new Server();
+	
 	
 	
 	@Test
@@ -55,6 +57,15 @@ public class TestAdd {
 	}
 	
 	@Test
+	public void null_message()
+	{
+		String msg= null;
+		assertEquals("Empty messages Should return -1 ", -1, tester.add(msg,"0768725334","0756843345"));
+	}
+	
+	
+	
+	@Test
 	public void normal_function()
 	{
 		int ID = tester.add("howdy","0768725334","0756843345");
@@ -70,19 +81,46 @@ public class TestAdd {
 		
 		}
 		boolean flag = duplicates(Server.IDS);
+		
+			Server.server.clear();
+			Server.IDS.clear();
+			
+		
 		assertFalse(flag);
+		
+	} */
+	@Test
+	
+	public void testFullMsgList() {
+		for(int i = 0; i <= 10200; i++){
+			Server caller = new Server();
+			caller.add("Bacon is awesome", "0970956651", "0705565671");
+		
+		}
+		
+		Server caller = new Server();
+		int result = caller.add("Bacon is awesome", "0970956651", "0705565671");
+		
+		assertEquals(-1, result);
+		Server.server.clear();
+		Server.IDS.clear();
+		
+		
 	}
-	*/
 	
+
 	
-	boolean duplicates(final ArrayList <Integer> IDList)
+	// Helper function to check for duplicate elements in a list
+	
+/*	boolean duplicates(final ArrayList <Integer> IDList)
 	{
 	  Set<Integer> lump = new HashSet<Integer>();
 	  for (int i : IDList)
 	  {
-	    if (lump.contains(i)) return true;
+	    if (lump.contains(i)) return true;		//Returns true if list contains duplicates, if it doesn't means testNonUniqueID has passed
+	    
 	    lump.add(i);
 	  }
 	  return false;
-	}
+	}  */
 }

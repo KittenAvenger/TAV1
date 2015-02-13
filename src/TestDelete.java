@@ -14,6 +14,7 @@ public class TestDelete {
 	@Before
 	public void setUp() {
 	tester = new Server();
+	
 }
 	@Test
 	public void nonExistingID() {

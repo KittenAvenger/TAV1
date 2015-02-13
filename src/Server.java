@@ -8,6 +8,7 @@ public class Server implements WhatsUpGU {
 	static ArrayList <Message> server = new ArrayList<Message>();
 	static ArrayList <Integer> IDS = new ArrayList<Integer>();
 	
+	
 	public Server (){
 		
 		
@@ -45,20 +46,29 @@ public class Server implements WhatsUpGU {
 		if(IsNotEmpty(message))
 		{
 			
-			ID = rand.nextInt(10000) + 1;
-			System.out.println(ID);
-			if(IDS.contains(ID))
+			ID = IDS.size() + 1;
+			
+			//System.out.println(ID);
+			if(IDS.size()> 10000)
 			{
-				int i = 0;
+			/*	int i = 0;
 				while(IDS.contains(ID) && i < 1)
 				{
 					ID = rand.nextInt(10000) + 1;
 					i++;
 				}
 				
+				
+				System.out.println(IDS.size());
+				
 				if(IDS.contains(ID)){
 					return -1;
 				}
+				else if(IDS.size() >= 10000){
+					return -1;
+				}*/
+				
+				return -1;
 				
 			}
 			
@@ -83,7 +93,7 @@ public class Server implements WhatsUpGU {
 		for(int i=0; i<server.size(); i++) {
 			if (server.get(i).getID() == ID && server.get(i).isFetched() == false) {
 				
-				System.out.println(ID);
+				//System.out.println(ID);
 				
 				server.remove(server.get(i));
 				IDS.remove(i);
@@ -101,6 +111,7 @@ public class Server implements WhatsUpGU {
 				server.get(i).setMessage(message);
 				return server.get(i).getID();
 			}
+			
 		}
 		return -1;
 	}
@@ -133,6 +144,7 @@ public class Server implements WhatsUpGU {
 			return "Message doesn't exist";
 		}	
 	}
+	
 	
 	public int fetch_complete(String receiver) {
 		

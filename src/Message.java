@@ -8,6 +8,7 @@ public class Message {
 	public Message(){
 		
 	}
+	
 
 	public Message (String sender, String message, int ID, String receiver, boolean fetched) {
 		
@@ -32,6 +33,7 @@ public class Message {
 		
 		return ID;
 	}
+	
 	
 	public String getReceiver() {
 		
