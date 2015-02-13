@@ -24,7 +24,7 @@ public class TestDelete {
 	@Test
 	public void messageFetched() {
 		int IDs = tester.add("Hey what is up", "0777777777", "0766666666");
-		tester.returnServer().setFetched();
+		tester.fetch("0766666666");
 		assertEquals("if message fetched return error", -1, tester.delete(IDs));
 	}
 	
