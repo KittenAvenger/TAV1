@@ -9,16 +9,16 @@ public class TestFetch {
 	
 	
 	@Test
-	// Sender Id doesn't match
-	public void SernderIdNotMatch() {
+	// Receiver Id doesn't match
+	public void ReceiverIdNotMatch() {
 		tester.add("Message1", "0761111234", "0769990000");
 		assertEquals("Message doesn't exist", tester.fetch("0768880000"));  
 	}
 	
 	
 	@Test
-	// Sender Id matches and message is fetched
-	public void SenderIdMatch1(){
+	// Receiver Id matches and message is fetched
+	public void ReceiverIdMatch1(){
 		tester.add("Message2", "0761512345", "0769940000");
 		for(int i=0; i<Server.server.size(); i++) {
 			if (Server.server.get(i).getReceiver().equals("0769940000") && Server.server.get(i).isFetched() == false) {
@@ -31,8 +31,8 @@ public class TestFetch {
 	
 	
 	@Test
-	// Sender Id matches and message is not fetched
-	public void SenderIdMatch2(){
+	// Receiver Id matches and message is not fetched
+	public void ReceiverIdMatch2(){
 		tester.add("Message3", "0761113256", "0769910000");
 		String message = "";
 		for(int i=0; i<Server.server.size(); i++) {
