@@ -9,7 +9,7 @@ public class TestFetch {
 	
 	
 	@Test
-	// Receiver Id doesn't match
+	// Message exists for the recipent
 	public void ReceiverIdNotMatch() {
 		tester.add("Message1", "0761111234", "0769990000");
 		assertEquals("Message doesn't exist", tester.fetch("0768880000"));  
@@ -17,26 +17,22 @@ public class TestFetch {
 	
 	
 	@Test
-	// Receiver Id matches and message is fetched
+	// Message exists for the recipent and message is fetched
 	public void ReceiverIdMatch1(){
 		tester.add("Message2", "0761512345", "0769940000");
-		for(int i=0; i<Server.server.size(); i++) {
-			if (Server.server.get(i).getReceiver().equals("0769940000") && Server.server.get(i).isFetched() == false) {
-				Server.server.get(i).setFetched();
-			}
-		}
+		tester.fetch("0769940000");
 		
 		assertEquals("Message doesn't exist", tester.fetch("0769940000"));
 	}
 	
 	
 	@Test
-	// Receiver Id matches and message is not fetched
+	// Message exists for the recipent and message is not fetched
 	public void ReceiverIdMatch2(){
 		tester.add("Message3", "0761113256", "0769910000");
 		String message = "";
 		for(int i=0; i<Server.server.size(); i++) {
-			if (Server.server.get(i).getReceiver().equals("0769910000") && Server.server.get(i).isFetched() == false) {
+			if (Server.server.get(i).getReceiver().equals("0769910000")) {
 				message = message + "\nMessage id: " + Server.server.get(i).getID() + "\nMessage: '"+
 						Server.server.get(i).getMessage()+"'\n"
 					+ "Sender: "+Server.server.get(i).getSender();
