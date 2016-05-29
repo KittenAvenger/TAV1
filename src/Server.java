@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Random;
 
 
 public class Server implements WhatsUpGU {
@@ -30,9 +29,6 @@ public class Server implements WhatsUpGU {
 	
 	public int add(String message, String sender, String recipient) {
 		int ID;
-		Random rand = new Random();
-		
-		
 		if(sender.length() != 10 || recipient.length() != 10)
 		{
 			return -1;
